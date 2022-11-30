@@ -18,8 +18,6 @@ static ShaderProgramSource ParseShader(const std::string& filepath)
 {
     std::ifstream stream(filepath);
 
-    std::cout << "[" << stream.is_open() << "]" << std::endl;
-
     enum class ShaderType
     {
         NONE = -1,
@@ -39,11 +37,9 @@ static ShaderProgramSource ParseShader(const std::string& filepath)
         if (line.find("#shader") != std::string::npos) {
             if (line.find("vertex") != std::string::npos) {
                 type = ShaderType::VERTEX;
-                //set mode to vertex
             }
             else if (line.find("fragment") != std::string::npos) {
                 type = ShaderType::FRAGMENT;
-                //set mode to fragment
             }
         
         } //if the line isn't a new section...
